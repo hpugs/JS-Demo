@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<title>jQuery文档操作</title>
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+		<style>
+			ul{display:inline-block;}
+			li{float:left;min-width:80px;height:40px;line-height:40px;margin-right:20px;border-radius:5px;background-color:#DFE0DF;color:#f54372;text-align:center;cursor:pointer;}
+			p.select{color:#f54372;}
+		</style>
+	</head>
+	<body>
+		<p class="p p1" id="p1">第一段文字</p>
+		<p class="p p2" id="p2">第二段文字</p>
+		<ul class="ul1">
+			<li>addClass()</li>
+			<li>after()</li>
+			<li>before()</li>
+			<li>append()</li>
+			<li>attr()</li>
+			<li>empty()</li>
+			<li>hasClass()</li>
+			<li>html()</li>
+		</ul>
+		<br/><br/>
+		<ul class="ul2" style="position:relative;">
+			<li>css()</li>
+			<li>height()</li>
+			<li>offset()</li>
+			<li>offsetParent()</li>
+			<li>position()</li>
+			<li>scrollLeft()</li>
+			<li>scrollTop()</li>
+			<li>width()</li>
+		</ul>
+	</body>
+	<script>
+		$(".ul1 li:eq(0)").click(function(){
+			$(".p1").addClass("select");
+		});
+		$(".ul1 li:eq(1)").click(function(){
+			$(".p1").after("after");
+		});
+		$(".ul1 li:eq(2)").click(function(){
+			$(".p1").before("before");
+		});
+		$(".ul1 li:eq(3)").click(function(){
+			$(".p1").append("append");
+		});
+		$(".ul1 li:eq(4)").click(function(){
+			alert($(".p1").attr("id"));
+		});
+		$(".ul1 li:eq(5)").click(function(){
+			$(".p1").empty();
+		});
+		$(".ul1 li:eq(6)").click(function(){
+			alert($(".p1").hasClass("第一段文字"));
+		});
+		$(".ul1 li:eq(7)").click(function(){
+			$(".p1").html("html");
+		});
+		
+		
+		$(".ul2 li:eq(0)").click(function(){
+			$(".p1").css("color","red");
+			$(".p2").css({"color":"white","background-color":"#98bf21","font-family":"Arial","font-size":"20px","padding":"5px"});
+		});
+		$(".ul2 li:eq(1)").click(function(){
+			alert($(this).height());
+			$(this).height("50px");
+		});
+		$(".ul2 li:eq(2)").click(function(){
+			alert("left:"+$(this).offset().left+"   top:"+$(this).offset().top);
+		});
+		$(".ul2 li:eq(3)").click(function(){
+			$(this).offsetParent().css("background-color", "red");
+		});
+		$(".ul2 li:eq(4)").click(function(){
+			alert("left:"+$(this).position().left+"   top:"+$(this).position().top);
+		});
+		$(".ul2 li:eq(5)").click(function(){
+			alert("scrollLeft:"+$(this).scrollLeft());
+		});
+		$(".ul2 li:eq(6)").click(function(){
+			alert("scrollTop:"+$(this).scrollTop());
+		});
+		$(".ul2 li:eq(7)").click(function(){
+			alert("widht:"+$(this).width());
+			$(this).width("200px");
+		});
+	</script>
+</html>
+

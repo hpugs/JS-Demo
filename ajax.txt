@@ -1,0 +1,25 @@
+var ajaxPara = {"ThisType": thisType, "HomeDiyTypeCode": HomeDiyTypeCode};
+$.ajax({
+	type: "POST",
+	url: "/Search/GetData",
+	data: ajaxPara,
+	dataType: "json",
+	beforeSend: function() {
+		$("#wrap").empty();
+		$("#wrap").append('<img src="/Img/loading_horizontal.gif" />');
+	},
+	success: function(data) {
+		$("#wrap").empty();
+		if (undefined != data && data !== "") {
+			var jsonObjs = eval(data);
+		  
+		} else {
+			$("#wrap").html("此分类下暂未上传艺术品");
+		}
+	},
+	complete: function() {
+		window.setTimeout(function() {
+			requestStatus = 2; //请求完成
+		}, 5000);
+	}
+});

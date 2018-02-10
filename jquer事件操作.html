@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title>Jquery事件操作测试</title>
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+		<style>
+			.ul{min-width:300px;height:25px;}
+			.ul2{margin-top:20px;}
+			.ul li{float:left;min-width:50px;height:25px;line-height:25px;margin-left:10px;background-color:#DFE0DF;color:#f54372;text-align:center;cursor:pointer;}
+		</style>
+	</head>
+	<body>
+		<ul class="ul ul1" id="ul1">
+			<li class="li li1" id="li1">第一项</li>
+			<li class="li li2" id="li2">第二项</li>
+			<li class="li li3" id="li3">第三项</li>
+			<li class="li li4" id="li4">第四项</li>
+			<li class="li li5" id="li5">第五项</li>
+		</ul>
+		<ul class="ul ul2" id="ul2">
+			<li class="li li1" id="li1">第一项<span>span</span></li>
+			<li class="li li2" id="li2">第二项</li>
+			<li class="li li3" id="li3">第三项</li>
+			<li class="li li4" id="li4">第四项</li>
+			<li class="li li5" id="li5">第五项</li>
+		</ul>
+		
+		<input type='text' value="text" id="text">
+		<input type='password' value="password" disabled="disabled">
+		<input type='number' value="number">
+		<input type='radio' value="radio">radio
+		<input type='checkbox' value="checkbox">checkbox
+	</body>
+	
+	<script>
+		var jq = jQuery.noConflict();//jQuery 名称冲突
+		jq(document).ready(function(){
+			alert("页面加载完成");
+		});
+		jq(".ul li").click(function(){
+			//alert(jq(this).text());//不带格式输出
+			//alert(jq(this).html());//带格式输出
+		});
+		jq("#ul1 li").click(function(){
+			//alert(jq(this).attr("class"));
+			if(jq(this).hasClass("li1")){//元素是否包含指定的class
+				alert(true);
+			}else{
+				alert(false);
+			}
+		});
+		jq("#ul1 li.li1").click(function(){
+			alert("#ul1 li.li1-----------" + jq(this).attr("class"));
+		});
+		jq(".ul1 li:first").click(function(){
+			alert(".ul1 li:first-----------" + jq(this).attr("class"));
+		});
+		jq(".ul1 li:last").click(function(){
+			alert(".ul1 li:last-----------" + jq(this).attr("class"));
+		});
+		jq(".ul1 li:even").click(function(){
+			alert(".ul1 li:even-----------" + jq(this).attr("class"));
+		});
+		jq(".ul1 li:odd").click(function(){
+			alert(".ul1 li:odd-----------" + jq(this).attr("class"));
+		});
+		jq(".ul1 li:eq(1)").click(function(){
+			alert(".ul1 li:eq(1)-----------" + jq(this).attr("class"));
+		});
+		jq(":input").click(function(){
+			alert(":input-----------" + jq(this).val());
+		});
+		jq(":text").click(function(){
+			alert(":text-----------" + jq(this).val());
+		});
+		jq(":enabled").click(function(){
+			alert(":enabled-----------" + jq(this).val());
+		});
+		jq(":disabled").click(function(){
+			alert(":disabled-----------" + jq(this).val());
+		});
+		jq("#text").change(function(){//控件失去焦点后，检查内容是否变化，变化激活
+			alert(".change()-----------" + jq(this).val());
+		});
+		jq("#text").focus(function(){//控件获得焦点
+			alert(".focus()-----------" + jq(this).val());
+		});
+	</script>
+	
+</html>

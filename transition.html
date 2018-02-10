@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>transition使用</title>
+        <meta charset="utf-8">
+        <style>
+            .block{
+                width: 200px;
+                height: 100px;
+                background: #a00;
+                -webkit-transition:background 3s;
+                margin: 0 auto;
+            }
+            #t1:hover{
+                background: #00a;
+                -webkit-transition:background 3s ease;
+            }
+            #t2:hover{
+                background: #00a;
+                -webkit-transition:background 3s linear;
+            }
+            #t3:hover{
+                background: #00a;
+                -webkit-transition:background 3s ease-in;
+            }
+            #t4:hover{
+                background: #00a;
+                -webkit-transition:background 3s ease-out;
+            }
+            #t5:hover{
+                background: #00a;
+                -webkit-transition:background 3s ease-in-out;
+            2
+        </style>
+    </head>
+
+    <body>
+        <div class="block" id="t1">缓慢开始，缓慢结束</div>
+        <br/>
+        <div class="block" id="t2">平稳过渡</div>
+        <br/>
+        <div class="block" id="t3">缓慢开始</div>
+        <br/>
+        <div class="block" id="t4">缓慢结束</div>
+        <br/>
+        <div class="block" id="t5">缓慢开始，缓慢结束（与ease有区别）</div>
+		<a href="mailto:manyi@manyiaby.com" title="投稿邮箱">manyi.manyiaby.com</a>
+    </body>
+</html>
